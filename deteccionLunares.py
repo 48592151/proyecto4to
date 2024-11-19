@@ -3,6 +3,7 @@ import cv2
 import numpy as np
 from tensorflow.keras.models import load_model
 from fastapi import FastAPI, UploadFile, File
+import uvicorn
 
 app = FastAPI ()
 
@@ -34,3 +35,5 @@ async def predict(file: UploadFile = File ('...')):
         }
 
 # probar en render
+if __name__ == '__main__':
+    uvicorn.run(app, host="0.0.0.0", port=8080)
