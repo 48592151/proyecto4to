@@ -10,7 +10,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # Suprime los logs de nivel INFO
 
 app = FastAPI ()
 
-model = load_model('./melanoma.keras')
+model = load_model('./melanoma.h5')
 
 def predict_image(image_path):
     img = cv2.imread(image_path)
