@@ -10,13 +10,13 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # Suprime los logs de nivel INFO
 
 app = FastAPI ()
 
-model_path = "melanoma.h5"
+model_path = "melanoma1.h5"
 
 model = load_model(model_path)
 
 def predict_image(image_path):
     img = cv2.imread(image_path)
-    img = cv2.resize(img, (128, 128))
+    img = cv2.resize(img, (64, 64))
     img = np.expand_dims(img, axis = 0)
     img = img / 255.0
     prediction = model.predict(img)
