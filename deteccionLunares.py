@@ -5,6 +5,9 @@ from tensorflow.keras.models import load_model
 from fastapi import FastAPI, UploadFile, File
 import uvicorn
 
+#evitar logs innecesarios de tensorflow
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # Suprime los logs de nivel INFO
+
 app = FastAPI ()
 
 model = load_model('/content/drive/MyDrive/imagenesLunares/melanoma.keras')
